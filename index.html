@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flowers.ua Львів — магазин квітів та доставка букетів</title>
+<meta name="description" content="Свіжі троянди, півонії, тюльпани та авторські букети з доставкою у Львові. вул. Замарстинівська, 170ж.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%232f8f4e'/%3E%3Ctext x='16' y='22' font-size='18' text-anchor='middle' fill='white' font-family='serif'%3EF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600&subset=cyrillic&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf5ee;--white:#fff;--blush:#f4dfdc;--rose:#c9808a;--ink:#2a2323;--muted:#6f6464;--green:#2f8f4e;--line:#eadfd5;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,92%);margin-inline:auto}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1}
+h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:.6rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.75rem;color:var(--rose);font-weight:600;margin-bottom:.8rem}
+section{padding:clamp(56px,8vw,110px) 0}
+.btn{display:inline-block;border:0;cursor:pointer;font:600 .95rem var(--sans);padding:.95rem 1.8rem;border-radius:999px;background:var(--ink);color:#fff;transition:.25s}
+.btn:hover{background:var(--rose);transform:translateY(-2px)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--blush)}
+.btn.ghost{background:transparent;border:1px solid currentColor;color:#fff}
+.btn.ghost:hover{background:#fff;color:var(--ink)}
+header{position:fixed;inset:0 0 auto;z-index:50;transition:.3s}
+header.solid{background:rgba(250,245,238,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px;color:#fff;transition:.3s}
+header.solid .nav{color:var(--ink)}
+.logo{font-family:var(--serif);font-size:1.7rem;font-weight:600}
+.logo b{color:#8fe0a8}header.solid .logo b{color:var(--green)}
+.menu{display:flex;gap:2rem;font-size:.92rem;font-weight:500}
+.menu a:hover{color:var(--rose)}
+.tel{font-weight:600;font-size:.95rem}
+.burger{display:none;background:none;border:0;color:inherit;font-size:1.6rem;cursor:pointer}
+.hero{min-height:100svh;display:flex;align-items:flex-end;color:#fff;padding:0;
+background:linear-gradient(180deg,rgba(30,20,22,.35),rgba(30,20,22,.15) 40%,rgba(30,20,22,.7)),url("https://images.unsplash.com/photo-1523693916903-027d144a2b7d?auto=format&fit=crop&w=2000&q=80") center/cover #5a3a40}
+.hero .wrap{padding-bottom:clamp(48px,9vw,110px);padding-top:140px}
+.hero h1{font-size:clamp(2.8rem,8vw,6rem);max-width:12ch}
+.hero p{max-width:46ch;font-size:1.1rem;margin:1.2rem 0 2rem;opacity:.95}
+.hero p.eyebrow{margin:0 0 .8rem;font-size:.75rem}
+.hero .btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero small{display:block;margin-top:1.6rem;opacity:.85}
+.cats{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;margin-top:2.2rem}
+.cat{position:relative;aspect-ratio:3/4;border-radius:18px;overflow:hidden;cursor:pointer;background:var(--blush)}
+.cat img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.cat:hover img{transform:scale(1.07)}
+.cat::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(30,20,22,.7))}
+.cat span{position:absolute;z-index:2;left:14px;right:10px;bottom:14px;color:#fff;font-family:var(--serif);font-size:1.3rem;font-weight:600;line-height:1.1}
+.catalog{background:var(--white)}
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1.6rem 0 2.2rem}
+.tab{border:1px solid var(--line);background:var(--cream);padding:.55rem 1.2rem;border-radius:999px;font:500 .9rem var(--sans);cursor:pointer;transition:.2s}
+.tab:hover{border-color:var(--rose)}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem 1.2rem}
+.card{display:flex;flex-direction:column}
+.ph{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--blush)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .ph img{transform:scale(1.06)}
+.tag{position:absolute;top:12px;left:12px;background:#fff;color:var(--ink);font-size:.72rem;font-weight:600;padding:.25rem .7rem;border-radius:999px}
+.card h3{font-size:1.45rem;margin:1rem 0 .2rem}
+.card p{color:var(--muted);font-size:.88rem;flex:1}
+.buy{display:flex;align-items:center;justify-content:space-between;margin-top:.9rem}
+.price{font-weight:600;font-size:1.1rem}
+.buy .btn{padding:.6rem 1.3rem;font-size:.85rem}
+.pop{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,70px);align-items:center}
+.pop .big{aspect-ratio:4/5;border-radius:24px;overflow:hidden;max-height:680px;width:100%;background:var(--blush)}
+.pop .big img{width:100%;height:100%;object-fit:cover}
+.pop ol{list-style:none;padding:0;margin:1.6rem 0 2rem}
+.pop li{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.pop li strong{font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1.1;display:block}
+.pop li span{color:var(--muted);font-size:.85rem;display:block}
+.pop li em{font-style:normal;font-weight:600;white-space:nowrap}
+.why{background:var(--blush)}
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.4rem}
+.feat{background:rgba(255,255,255,.7);border-radius:18px;padding:1.8rem}
+.feat i{font-style:normal;font-family:var(--serif);font-size:2.6rem;color:var(--rose);line-height:1}
+.feat h3{font-size:1.4rem;margin:.8rem 0 .4rem}
+.feat p{font-size:.92rem;color:var(--muted)}
+.revs{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2.2rem}
+.rev{background:#fff;border-radius:18px;padding:1.8rem;border:1px solid var(--line)}
+.stars{color:#e0a43a;letter-spacing:.15em;margin-bottom:.7rem}
+.rev p{font-family:var(--serif);font-size:1.25rem;line-height:1.35}
+.rev b{display:block;margin-top:1rem;font:600 .88rem var(--sans)}
+.score{margin-top:1.4rem;color:var(--muted);font-size:.9rem}
+.contact{background:var(--ink);color:#fff}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,70px);align-items:center}
+.contact .eyebrow{color:#e9b6bd}
+.clist{margin-top:1.8rem;display:grid;gap:1.2rem}
+.clist div{border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:1.1rem}
+.clist small{display:block;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;opacity:.6}
+.clist a,.clist span{font-size:1.15rem}
+.clist a:hover{color:#e9b6bd}
+.cimg{aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:var(--blush)}
+.cimg img{width:100%;height:100%;object-fit:cover}
+.contact .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:2rem}
+footer{background:#1d1717;color:#cfc4c0;padding:48px 0 28px;font-size:.9rem}
+.fgrid{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}
+footer .logo{color:#fff}footer .logo b{color:#8fe0a8}
+footer nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+footer nav a:hover{color:#fff}
+.copy{margin-top:2rem;padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.1);font-size:.8rem;opacity:.7}
+dialog{border:0;border-radius:22px;padding:0;width:min(440px,92vw);margin:auto;box-shadow:0 30px 80px rgba(0,0,0,.35);overflow:hidden}
+dialog::backdrop{background:rgba(30,20,22,.55);backdrop-filter:blur(3px)}
+.m-img{aspect-ratio:16/10;overflow:hidden;background:var(--blush)}
+.m-img img{width:100%;height:100%;object-fit:cover}
+.m-body{padding:1.6rem}
+.m-body h3{font-size:1.8rem}
+.m-body p{color:var(--muted);font-size:.92rem;margin:.4rem 0 1.2rem}
+.m-body .row{display:grid;gap:.6rem}
+.m-body .btn{text-align:center}
+.m-body .btn.alt{background:var(--cream);color:var(--ink);border:1px solid var(--line)}
+.m-body .btn.alt:hover{background:var(--blush)}
+.m-close{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;border:0;background:#fff;cursor:pointer;font-size:1.3rem;z-index:2}
+.m-body .note{font-size:.8rem;margin:1rem 0 0;text-align:center}
+@media(max-width:1000px){
+.grid{grid-template-columns:repeat(2,1fr)}
+.cats{grid-template-columns:repeat(3,1fr)}
+.feats{grid-template-columns:repeat(2,1fr)}
+.revs{grid-template-columns:1fr}
+.pop,.cgrid{grid-template-columns:1fr}
+.cimg{aspect-ratio:16/10}
+}
+@media(max-width:760px){
+.menu{position:fixed;inset:74px 0 auto;background:var(--cream);color:var(--ink);flex-direction:column;gap:0;padding:.5rem 6%;display:none;box-shadow:0 20px 30px rgba(0,0,0,.1)}
+.menu.open{display:flex}
+.menu a{padding:1rem 0;border-bottom:1px solid var(--line)}
+.burger{display:block}
+.tel{display:none}
+header:has(.menu.open){background:var(--cream)}
+header:has(.menu.open) .nav{color:var(--ink)}
+header:has(.menu.open) .logo b{color:var(--green)}
+}
+@media(max-width:520px){
+.grid{gap:1.2rem .7rem}
+.card h3{font-size:1.15rem}
+.card p{display:none}
+.buy{flex-direction:column;align-items:stretch;gap:.5rem}
+.buy .price{font-size:1rem}
+.cats{grid-template-columns:repeat(2,1fr)}
+.feats{grid-template-columns:1fr}
+.hero .btns .btn{flex:1;text-align:center}
+.pop li{flex-direction:column;align-items:flex-start}
+}
+@media(min-width:1700px){.wrap{width:min(1400px,88%)}.grid{gap:2rem 1.6rem}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="logo" href="#">Flowers<b>.ua</b></a>
+    <nav class="menu" id="menu">
+      <a href="#categories">Категорії</a>
+      <a href="#catalog">Каталог</a>
+      <a href="#popular">Популярні</a>
+      <a href="#why">Про нас</a>
+      <a href="#reviews">Відгуки</a>
+      <a href="#contacts">Контакти</a>
+    </nav>
+    <a class="tel" href="tel:+380671331078">067 133 10 78</a>
+    <button class="burger" id="burger" aria-label="Меню">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#f4dfdc">Магазин квітів у Львові</p>
+    <h1>Квіти, що говорять замість слів</h1>
+    <p>Свіжі троянди, півонії та авторські букети від флористів Flowers.ua. Збираємо вручну, доставляємо по Львову або чекаємо у нашому магазині.</p>
+    <div class="btns">
+      <a class="btn light" href="#catalog">Переглянути букети</a>
+      <a class="btn ghost" href="#contacts">Контакти</a>
+    </div>
+    <small>★ 4,3 · 230 відгуків на Google Maps</small>
+  </div>
+</section>
+
+<section id="categories">
+  <div class="wrap">
+    <p class="eyebrow">Категорії</p>
+    <h2>Оберіть настрій</h2>
+    <div class="cats" id="cats"></div>
+  </div>
+</section>
+
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <p class="eyebrow">Каталог</p>
+    <h2>Наші букети</h2>
+    <div class="tabs" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="popular">
+  <div class="wrap pop">
+    <div class="big"><img src="https://images.unsplash.com/photo-1572454591674-2739f30d8c40?auto=format&fit=crop&w=1000&q=80" alt="Букет рожевих і бежевих квітів у скляній вазі" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523693916903-027d144a2b7d?auto=format&fit=crop&w=1000&q=80'"></div>
+    <div>
+      <p class="eyebrow">Популярні букети</p>
+      <h2>Те, що обирають найчастіше</h2>
+      <ol id="poplist"></ol>
+      <a class="btn" href="#catalog">Усі букети</a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <p class="eyebrow">Чому обирають нас</p>
+    <h2>Квіти, яким довіряють</h2>
+    <div class="feats">
+      <div class="feat"><i>01</i><h3>Свіжість щодня</h3><p>Букети збираємо з свіжих квітів під ваше замовлення.</p></div>
+      <div class="feat"><i>02</i><h3>Авторська флористика</h3><p>Кожен букет створюємо вручну, з увагою до кольору, форми й настрою.</p></div>
+      <div class="feat"><i>03</i><h3>Доставка по Львову</h3><p>Привеземо вчасно та акуратно. Також можна забрати замовлення в магазині.</p></div>
+      <div class="feat"><i>04</i><h3>Прозорі ціни</h3><p>Ціна на кожен букет вказана одразу, без прихованих доплат.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <p class="eyebrow">Відгуки</p>
+    <h2>Нас люблять наші клієнти</h2>
+    <div class="revs">
+      <div class="rev"><div class="stars">★★★★★</div><p>Замовляла букет мамі на день народження. Квіти були свіжі, а упаковка дуже ніжна. Мама була в захваті.</p><b>Олена, Львів</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>Швидко підібрали букет за моїм бюджетом і привезли точно в призначений час. Дякую!</p><b>Андрій, Львів</b></div>
+      <div class="rev"><div class="stars">★★★★★</div><p>Дуже гарні півонії, стояли вдома понад тиждень. Обов'язково замовлятиму ще.</p><b>Марина, Львів</b></div>
+    </div>
+    <p class="score">Рейтинг магазину на Google Maps: 4,3 з 5 · 230 відгуків</p>
+  </div>
+</section>
+
+<section class="contact" id="contacts">
+  <div class="wrap cgrid">
+    <div>
+      <p class="eyebrow">Контакти</p>
+      <h2>Завітайте до нас</h2>
+      <div class="clist">
+        <div><small>Адреса</small><span>вул. Замарстинівська, 170ж, Львів, 79068</span></div>
+        <div><small>Телефон</small><a href="tel:+380671331078">067 133 10 78</a></div>
+        <div><small>Графік</small><span>Щодня до 20:00 · самовивіз та доставка</span></div>
+        <div><small>Instagram</small><a id="insta" href="https://www.instagram.com/" target="_blank" rel="noopener">Наш Instagram</a></div>
+      </div>
+      <div class="btns">
+        <a class="btn light" href="tel:+380671331078">Подзвонити</a>
+        <a class="btn ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Flowers.ua+%D0%97%D0%B0%D0%BC%D0%B0%D1%80%D1%81%D1%82%D0%B8%D0%BD%D1%96%D0%B2%D1%81%D1%8C%D0%BA%D0%B0+170%D0%B6+%D0%9B%D1%8C%D0%B2%D1%96%D0%B2">Прокласти маршрут</a>
+      </div>
+    </div>
+    <div class="cimg"><img src="https://images.unsplash.com/photo-1561848355-890d054dc55a?auto=format&fit=crop&w=1000&q=80" alt="Білі та бежеві квіти" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523693916903-027d144a2b7d?auto=format&fit=crop&w=1000&q=80'"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div><a class="logo" href="#">Flowers<b>.ua</b></a><p style="margin-top:.6rem;max-width:30ch">Магазин квітів та доставка букетів у Львові.</p></div>
+      <nav><a href="#categories">Категорії</a><a href="#catalog">Каталог</a><a href="#reviews">Відгуки</a><a href="#contacts">Контакти</a></nav>
+    </div>
+    <p class="copy">© 2026 Flowers.ua Львів. Фотографії: Unsplash.</p>
+  </div>
+</footer>
+
+<dialog id="dlg">
+  <button class="m-close" id="close" aria-label="Закрити">×</button>
+  <div class="m-img" id="m-img"></div>
+  <div class="m-body">
+    <h3 id="m-title"></h3>
+    <p id="m-info"></p>
+    <div class="row">
+      <a class="btn" href="tel:+380671331078">Замовити по телефону</a>
+      <a class="btn alt" id="m-viber" href="#">Написати у Viber</a>
+    </div>
+    <p class="note" style="color:var(--muted)">Назвіть букет, дату та адресу доставки — решту зробимо ми.</p>
+  </div>
+</dialog>
+
+<script>
+const PHONE="380671331078";
+const U=(id,w)=>`https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${w||800}&q=80`;
+const FALLBACK=U("1523693916903-027d144a2b7d");
+const CATS=["Троянди","Півонії","Тюльпани","Букети","Авторські композиції","Подарунки"];
+const P=[
+{n:"Ніжність рожевих троянд",c:"Троянди",p:1450,i:"1582794543139-8ac9cb0f7b11",d:"Рожеві троянди у класичній упаковці",pop:1},
+{n:"Червоний оксамит",c:"Троянди",p:1790,i:"1589095181425-c038b3871b6a",d:"Букет червоних троянд для особливих слів"},
+{n:"Рожево-білі троянди",c:"Троянди",p:1650,i:"1523693916903-027d144a2b7d",d:"Ніжне поєднання білих і рожевих троянд",pop:1},
+{n:"Класичний букет троянд",c:"Троянди",p:1950,i:"1487530811176-3780de880c2d",d:"Пишний букет із соковитих троянд"},
+{n:"Півонії «Рожева хмара»",c:"Півонії",p:2100,i:"1563730031910-60f14687e33a",d:"Рожеві півонії із зеленню",pop:1},
+{n:"Пудрові півонії",c:"Півонії",p:1890,i:"1575178094668-132dc931ad35",d:"М'які пудрові відтінки"},
+{n:"Півонії з гіпсофілою",c:"Півонії",p:1750,i:"1589832331026-62c755f29214",d:"Легкий весняний букет"},
+{n:"Тюльпани рожеві",c:"Тюльпани",p:790,i:"1586968295564-92fd7572718b",d:"Свіжі рожеві тюльпани, 15 шт."},
+{n:"Тюльпани жовто-рожеві",c:"Тюльпани",p:850,i:"1525898939552-346875c89d92",d:"Яскравий мікс для гарного настрою"},
+{n:"Мікс тюльпанів",c:"Тюльпани",p:920,i:"1559150180-2467f804f9bf",d:"Різнокольорові тюльпани, 25 шт."},
+{n:"Рожево-бежевий букет у вазі",c:"Букети",p:1580,i:"1572454591674-2739f30d8c40",d:"Букет змішаних квітів з вазою",pop:1},
+{n:"Яскравий мікс-букет",c:"Букети",p:1250,i:"1782647862359-9feecdd97933",d:"Соковитий мікс сезонних квітів"},
+{n:"Рожева композиція у вазі",c:"Авторські композиції",p:2300,i:"1561181286-d3fee7d55364",d:"Авторська композиція від флориста"},
+{n:"Біла авторська композиція",c:"Авторські композиції",p:2450,i:"1561848355-890d054dc55a",d:"Білі та бежеві квіти, стриманий стиль"},
+{n:"Червона композиція",c:"Авторські композиції",p:2150,i:"1533616688419-b7a585564566",d:"Виразна композиція у червоних тонах"},
+{n:"Сухоцвіти в крафті",c:"Подарунки",p:980,i:"1622658641558-235f26dd270b",d:"Букет сухоцвітів у персиковому папері зі стрічкою"},
+{n:"Соняхи, троянди й гортензії",c:"Подарунки",p:1850,i:"1778101410311-6cca527142d6",d:"Сонячний подарунковий букет"}
+];
+const catImg={};P.forEach(x=>{if(!catImg[x.c])catImg[x.c]=x.i});
+const $=s=>document.querySelector(s);
+const money=n=>n.toLocaleString("uk-UA")+" ₴";
+const img=(id,alt,w,lazy=true)=>`<img src="${U(id,w)}" alt="${alt}" ${lazy?'loading="lazy"':''} onerror="this.onerror=null;this.src='${FALLBACK}'">`;
+
+let cur="Усі";
+function tabs(){
+  $("#tabs").innerHTML=["Усі",...CATS].map(c=>`<button class="tab ${c===cur?"on":""}" data-c="${c}">${c}</button>`).join("");
+}
+function grid(){
+  const list=P.map((x,k)=>({...x,k})).filter(x=>cur==="Усі"||x.c===cur);
+  $("#grid").innerHTML=list.map(x=>`<article class="card"><div class="ph">${img(x.i,x.n,700)}${x.pop?'<span class="tag">Хіт</span>':''}</div><h3>${x.n}</h3><p>${x.d}</p><div class="buy"><span class="price">${money(x.p)}</span><button class="btn" data-k="${x.k}">Замовити</button></div></article>`).join("");
+}
+$("#cats").innerHTML=CATS.map(c=>`<a class="cat" href="#catalog" data-c="${c}">${img(catImg[c],c,500)}<span>${c}</span></a>`).join("");
+$("#poplist").innerHTML=P.map((x,k)=>({...x,k})).filter(x=>x.pop).map(x=>`<li><div><strong>${x.n}</strong><span>${x.c}</span></div><div style="display:flex;gap:.8rem;align-items:center"><em>${money(x.p)}</em><button class="btn" style="padding:.55rem 1.1rem;font-size:.82rem" data-k="${x.k}">Замовити</button></div></li>`).join("");
+tabs();grid();
+
+document.addEventListener("click",e=>{
+  const t=e.target.closest(".tab,.cat");
+  if(t){cur=t.dataset.c;tabs();grid();return}
+  const b=e.target.closest("[data-k]");
+  if(b)openOrder(P[b.dataset.k]);
+});
+const dlg=$("#dlg");
+function openOrder(x){
+  $("#m-img").innerHTML=img(x.i,x.n,800,false);
+  $("#m-title").textContent=x.n+" — "+money(x.p);
+  $("#m-info").textContent=x.d;
+  $("#m-viber").href="viber://chat?number=%2B"+PHONE;
+  dlg.showModal();
+}
+$("#close").onclick=()=>dlg.close();
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+
+const hdr=$("#top"),menu=$("#menu");
+const onScroll=()=>hdr.classList.toggle("solid",scrollY>60);
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+$("#burger").onclick=()=>menu.classList.toggle("open");
+menu.addEventListener("click",e=>{if(e.target.tagName==="A")menu.classList.remove("open")});
+</script>
+</body>
+</html>
